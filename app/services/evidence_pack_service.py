@@ -113,12 +113,12 @@ def build_evidence_pack(repo: Any, incident_id: str, generated_at: str | None = 
     }
     files: dict[str, bytes] = {
         "README.txt": (
-            "Recall Closure evidence pack\n\n"
-            "This packet proves an organization's internal operational response only. "
-            "It does not declare product safety, authorize disposal, or change regulator recall status.\n"
-            "Original uploads and task media are excluded; hashes and private-store references remain in the records.\n"
-            "The manifest is unsigned. Preserve or publish the reported root hash separately when authenticity must be proven.\n"
-        ).encode("utf-8"),
+            b"Recall Closure evidence pack\n\n"
+            b"This packet proves an organization's internal operational response only. "
+            b"It does not declare product safety, authorize disposal, or change regulator recall status.\n"
+            b"Original uploads and task media are excluded; hashes and private-store references remain in the records.\n"
+            b"The manifest is unsigned. Preserve or publish the reported root hash separately when authenticity must be proven.\n"
+        ),
         "incident.json": _pretty(_sanitize(incident.to_dict())),
         "recall.json": _pretty(_sanitize(recall.to_dict()) if recall else None),
         "source-provenance.json": _pretty(source_record),

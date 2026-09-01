@@ -21,8 +21,8 @@ from app.domain.models import Recall, new_id
 from app.repositories.memory import InMemoryRepository
 from app.services.demo_data import seed_demo
 from app.services.gemini_service import GeminiService
-from app.services.recall_sources import load_fixture, source_from_payload
 from app.services.readiness_service import readiness_payload
+from app.services.recall_sources import load_fixture, source_from_payload
 from app.services.status_service import status_payload
 from app.services.verification_service import VerificationService
 from app.workflows.recall_workflow import RecallWorkflow

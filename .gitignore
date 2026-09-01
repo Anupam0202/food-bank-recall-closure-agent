@@ -14,3 +14,6 @@ gcp-readiness.json
 .env.cloud.generated
 .vercel/
 *.egg-info/
+
+.vercel
+.env*

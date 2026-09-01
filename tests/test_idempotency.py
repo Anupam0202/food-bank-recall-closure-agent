@@ -1,8 +1,8 @@
 import unittest
 
 from app.domain.models import Recall, RecallSource
-from app.workflows.idempotency import incident_key, stable_id
 from app.services.recall_sources import source_from_payload
+from app.workflows.idempotency import incident_key, stable_id
 
 
 class IdempotencyTests(unittest.TestCase):

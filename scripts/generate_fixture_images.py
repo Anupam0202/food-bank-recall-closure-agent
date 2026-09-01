@@ -1,4 +1,5 @@
 from pathlib import Path
+
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -11,7 +12,8 @@ def font(size, bold=False):
         "/usr/share/fonts/truetype/liberation2/LiberationSans-Bold.ttf" if bold else "/usr/share/fonts/truetype/liberation2/LiberationSans-Regular.ttf",
     ]
     for p in candidates:
-        if Path(p).exists(): return ImageFont.truetype(p, size)
+        if Path(p).exists():
+            return ImageFont.truetype(p, size)
     return ImageFont.load_default()
 
 def make(name, brand, product, upc, lot, color):

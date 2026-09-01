@@ -12,7 +12,7 @@ def available(name):
 @unittest.skipUnless(available("fastapi") and available("google.adk"), "Production dependencies unavailable")
 class ProductionImportTests(unittest.TestCase):
     def test_fastapi_and_adk_entrypoints_import(self):
-        import app.main
         import agent
+        import app.main
         self.assertIsNotNone(app.main.app)
         self.assertIsNotNone(agent.root_agent)

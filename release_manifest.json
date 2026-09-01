@@ -2,8 +2,8 @@
   "schema_version": 3,
   "project": "food-bank-recall-closure-agent",
   "version": "1.3.0",
-  "build_timestamp": "2026-09-01T06:48:52+05:30",
-  "git_commit": "8cf0309dc0a0d34b7c95afeaec8dd038be077d5e",
+  "build_timestamp": "2026-09-01T07:10:58+05:30",
+  "git_commit": "2f7196819612368beaa55ea01d4655b9b975364b",
   "release_status": "CANDIDATE",
   "selected_model": "gemini-3.7-flash",
   "selected_adk_version": "2.7.1",
@@ -142,14 +142,19 @@
       "sha256": "585c93fbd06ce6d99d4018f63cc3819abf09c19d7d1e056e29b7b1f7f99bb912"
     },
     {
+      "path": ".env.local",
+      "bytes": 1409,
+      "sha256": "4a5b2deab4fbe89fc4c51dae3dc93dc6fa395af2092c4108d7717cf8c23e845c"
+    },
+    {
       "path": ".github\\workflows\\ci.yml",
       "bytes": 976,
       "sha256": "0ff948e6caff8fc8751bea9a5b736a7c0beef26b1cace8865017fdc98bb90f06"
     },
     {
       "path": ".gitignore",
-      "bytes": 188,
-      "sha256": "15b93af6094d13e637e52cb52f8cd6b5c43cbaca1d09ae64d5899a821f9e529b"
+      "bytes": 206,
+      "sha256": "68bccf79f9c3b5c25064c8b1926134e6858685afda48a3089a4a576fc70f1469"
     },
     {
       "path": ".markdownlint.json",
@@ -160,6 +165,16 @@
       "path": ".python-version",
       "bytes": 5,
       "sha256": "7b55f8e67b5623c4bef3fa691288da9437d79d3aba156de48d481db32ac7d16d"
+    },
+    {
+      "path": ".vercel\\README.txt",
+      "bytes": 520,
+      "sha256": "f5d1ed0f5032ae128931f46459b5faa1af6319fc2dfb3e7a5fe54a84bf93dbd6"
+    },
+    {
+      "path": ".vercel\\repo.json",
+      "bytes": 229,
+      "sha256": "80654910f081579bb056423f7ba5765b526f76ad00bce624c8721024bd0f316a"
     },
     {
       "path": ".vercelignore",
@@ -323,8 +338,8 @@
     },
     {
       "path": "app\\repositories\\firestore.py",
-      "bytes": 3884,
-      "sha256": "17100a7ba960a7d213034484d2959f561a8eb6df31502fb8c60ba3f29b4b2311"
+      "bytes": 3958,
+      "sha256": "4115cc822aa207ea9b06239a97a699b2fe3734aaedd2b013852e493b7e3962a2"
     },
     {
       "path": "app\\repositories\\memory.py",
@@ -353,13 +368,13 @@
     },
     {
       "path": "app\\services\\evidence_pack_service.py",
-      "bytes": 9111,
-      "sha256": "0b23f72a6dd563a57d24376435f19b56df636cad5c46734b3312c5e8bf28c2fc"
+      "bytes": 9100,
+      "sha256": "35786498460e7016e8ba35658da9a3b1d65d69c1c4a30dbddc74b918ea59f65f"
     },
     {
       "path": "app\\services\\gemini_service.py",
-      "bytes": 12512,
-      "sha256": "3db9aca5992a0763945621d70802bc4dbf6a37d1568bf184a35165065b11765d"
+      "bytes": 12615,
+      "sha256": "9633349b285d58bfc7785f1935075bc9bbf6c5866e5f97bf4a4ea354cd4e61f0"
     },
     {
       "path": "app\\services\\inventory_matcher.py",
@@ -378,8 +393,8 @@
     },
     {
       "path": "app\\services\\recall_sources.py",
-      "bytes": 1998,
-      "sha256": "363ffe84d57cf38e3cddda6d6c456fba82f3cdf7afd66e60d9e709df2b4d4fe8"
+      "bytes": 1991,
+      "sha256": "7144cca899dd60ec8e3facbf0a30dafa2d7e39bc336e3c8c640912c12ca40c88"
     },
     {
       "path": "app\\services\\status_service.py",
@@ -494,12 +509,12 @@
     {
       "path": "BUILD_REPORT.md",
       "bytes": 4850,
-      "sha256": "e484cbd59dcc4b1c48d3e3ef5bac86197ad12a6bcee9a31d95634ea7c6fe331c"
+      "sha256": "b464ac6fe73b0a73425dae9e4e551029b5b53014ad821e1af2bcf72eb1cc08d5"
     },
     {
       "path": "BUILD_STATE.json",
       "bytes": 2932,
-      "sha256": "df01f78a7009d39634a14ef5c41d34ded650d54e2ea2e7339e99b27c02cdf154"
+      "sha256": "c8663a1430a55b633229a7df34d1e401a096d410b585c4fd5653d045ed254dd6"
     },
     {
       "path": "cloudbuild.yaml",
@@ -783,8 +798,8 @@
     },
     {
       "path": "pyproject.toml",
-      "bytes": 1217,
-      "sha256": "67d6d50f970d4022fc79879f7c35bcf11fe08d720b84f4c7dc063cbbc46879e5"
+      "bytes": 1383,
+      "sha256": "fb1104a2e2e7975a6c9ccb6124580909f7e687ff5ca8951fe728959ec430af90"
     },
     {
       "path": "README.md",
@@ -804,7 +819,7 @@
     {
       "path": "scripts\\adk_import_smoke.py",
       "bytes": 340,
-      "sha256": "0d01744bc5c00735c0b0e99da2b04552c4d62a410fb1d9b1df84ff86591fa689"
+      "sha256": "7103e6f83f407acc9dbf238653b7ad5d38f4f67c9b97733071d6752edb59411e"
     },
     {
       "path": "scripts\\check_dependency_compatibility.py",
@@ -824,7 +839,7 @@
     {
       "path": "scripts\\fetch_public_recall.py",
       "bytes": 620,
-      "sha256": "1429e10ad51096270569c244a2848f2e0f5cdcb4d372cda769e8c53c004abb8f"
+      "sha256": "ef89045bc0d3ea4ee69d01163277141c6cc11b26d7a1e55e5f27d491a10eea5d"
     },
     {
       "path": "scripts\\finalize_release.py",
@@ -838,13 +853,13 @@
     },
     {
       "path": "scripts\\generate_architecture_diagram.py",
-      "bytes": 4879,
-      "sha256": "fb581796d96594a43229a49b84c27437255a54e18d3b8afedbdc43c316bbd84e"
+      "bytes": 4883,
+      "sha256": "54f4aaf078b6b659158cde70292762a80bb781f14e0c2f67098ad973954023ff"
     },
     {
       "path": "scripts\\generate_fixture_images.py",
-      "bytes": 1719,
-      "sha256": "5ee50329dcb20d690e5ad25220613ee0d590ac8e7787de7b00db6f4575f42005"
+      "bytes": 1732,
+      "sha256": "382b03810ca64f8bd3dd3099a2a73cf65fdabe36ab3e0f46d321c9607e232bc5"
     },
     {
       "path": "scripts\\http_smoke.py",
@@ -854,7 +869,7 @@
     {
       "path": "scripts\\live_gemini_smoke.py",
       "bytes": 735,
-      "sha256": "55e2b93abf4084f28b6e1eb7379b619af11e926ab968318d02bdcfc7db1d36b5"
+      "sha256": "6b46c671f296cfd61bfd935d7ecf1d22e712243615f0bd3151b5ab59e8674298"
     },
     {
       "path": "scripts\\offline_preview_server.py",
@@ -869,12 +884,12 @@
     {
       "path": "scripts\\render_static_previews.py",
       "bytes": 7442,
-      "sha256": "2e2d44dc7cd289f74a21a8192f707398b8b688afbdbddd4709bc28d42d37b7f7"
+      "sha256": "74bdf000104e4be204fad7e05e754d17b2e6b7d863cf5732ad22aff139b7b8df"
     },
     {
       "path": "scripts\\run_golden_path.py",
       "bytes": 2303,
-      "sha256": "348c69648b6c986ee51dc81a4f4e5d6a6bed676b480fb81687d00dfc3f88eb0e"
+      "sha256": "6496d90bd2383d99a1bb40222fe1cd580dda1514d6d4b54ac7e54a0860a7867d"
     },
     {
       "path": "scripts\\run_windows.cmd",
@@ -884,7 +899,7 @@
     {
       "path": "scripts\\seed_demo.py",
       "bytes": 537,
-      "sha256": "7ffdf94042ce81a92848e1bfa6bab6c5a2b4ea3ec36716c70432d57a48929f5f"
+      "sha256": "a4e6c5edd4e3ab567e68be6d627262f41643e2e1c3cb346bf76e3be02fbb7f27"
     },
     {
       "path": "scripts\\setup_windows.cmd",
@@ -894,7 +909,7 @@
     {
       "path": "scripts\\validate_release.py",
       "bytes": 7687,
-      "sha256": "47f05e26ece72878391adfc49452a9efd8e576da994ec0070abc2f860bca66df"
+      "sha256": "da65c7d86b90a108570bf58738351f9a4504a96edbd2c966f0f44f5ea24acc95"
     },
     {
       "path": "scripts\\vercel_preflight.py",
@@ -933,8 +948,8 @@
     },
     {
       "path": "tests\\test_cloud_config_tools.py",
-      "bytes": 1142,
-      "sha256": "31caf64c69fb212962fc5b3508a5587dc42b224b469b235d34adf264a04df765"
+      "bytes": 1126,
+      "sha256": "cd3d3e1be25c86c211d45402200eb019c764b1c72b2836d1a6b7f55f2ff597dd"
     },
     {
       "path": "tests\\test_config.py",
@@ -943,8 +958,8 @@
     },
     {
       "path": "tests\\test_dependency_contract.py",
-      "bytes": 1365,
-      "sha256": "415eb8a0760dfc7db97ff7025b6295103c789231c4f7fb480c360c1c81d41c14"
+      "bytes": 1364,
+      "sha256": "6374b28670789a964f03b2b3adf00f6cb18f55ca1d4052079e0cb80237efc4f9"
     },
     {
       "path": "tests\\test_evidence_pack.py",
@@ -978,13 +993,13 @@
     },
     {
       "path": "tests\\test_health.py",
-      "bytes": 1460,
-      "sha256": "753d900a56e4bfa4f37730ca7fe902cea73803525d3ce3f5a0278263273c38fb"
+      "bytes": 1461,
+      "sha256": "022f8cca8b71e99f19c113ed2908f1b842fa6bcf232614e38dcd3bdf9448f726"
     },
     {
       "path": "tests\\test_idempotency.py",
       "bytes": 1392,
-      "sha256": "9281e4c8c7a01dc15caa5c10844c99987053137781632a81572f366d35c86e50"
+      "sha256": "804dd938050a6e96ae1ef352aeadc6d467966036ae0b8ea5a5ae2902155c2185"
     },
     {
       "path": "tests\\test_live_integration.py",
@@ -999,7 +1014,7 @@
     {
       "path": "tests\\test_production_import.py",
       "bytes": 546,
-      "sha256": "69943290bf8094a0736ffabae2fbd7b565814e37c7588bb18e79addd3656ffbf"
+      "sha256": "86dfe66756e6ab8cece7c759b854e6e8b51b3850a58448d46deb79cd618b2b51"
     },
     {
       "path": "tests\\test_pubsub_service.py",

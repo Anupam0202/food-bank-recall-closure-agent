@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import json
 import os
-from pathlib import Path
 import sys
+from pathlib import Path
 
 if os.getenv("RUN_LIVE_GEMINI_TESTS") != "1":
     raise SystemExit("NOT RUN: set RUN_LIVE_GEMINI_TESTS=1 and GEMINI_API_KEY explicitly")

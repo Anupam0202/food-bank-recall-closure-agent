@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -23,7 +24,8 @@ def text(x, y, value, size=24, color="#2C2C2B", bold=False, anchor="la"):
 
 def line(points, color="#2783DE", width=5):
     d.line(points, fill=color, width=width, joint="curve")
-    x1, y1 = points[-2]; x2, y2 = points[-1]
+    x1, y1 = points[-2]
+    x2, y2 = points[-1]
     if abs(x2-x1) >= abs(y2-y1):
         s = 1 if x2 > x1 else -1
         d.polygon([(x2,y2),(x2-14*s,y2-8),(x2-14*s,y2+8)], fill=color)

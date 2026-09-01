@@ -18,6 +18,7 @@ class HealthPayloadTests(unittest.TestCase):
 class HealthEndpointTests(unittest.TestCase):
     def test_health_dashboard_and_readiness_contract(self):
         from fastapi.testclient import TestClient
+
         from app.main import app
 
         client = TestClient(app)

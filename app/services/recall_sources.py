@@ -20,7 +20,7 @@ def stable_hash(payload: dict[str, Any] | str) -> str:
 
 def source_from_payload(payload: dict[str, Any] | str, provider: str, source_url: str, limitations: str) -> RecallSource:
     digest = stable_hash(payload)
-    source_id = hashlib.sha256(f"{provider}|{digest}".encode("utf-8")).hexdigest()[:20]
+    source_id = hashlib.sha256(f"{provider}|{digest}".encode()).hexdigest()[:20]
     return RecallSource(
         id=f"source_{source_id}",
         provider=provider,

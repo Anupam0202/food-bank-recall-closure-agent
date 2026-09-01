@@ -4,10 +4,11 @@ import json
 import logging
 import re
 import time
+from collections.abc import Callable
 from dataclasses import dataclass
 from io import BytesIO
 from time import perf_counter
-from typing import Any, Callable, TypeVar
+from typing import Any, TypeVar
 
 from pydantic import ValidationError as PydanticValidationError
 
@@ -110,8 +111,10 @@ class GeminiService:
                 upcs = re.findall(r"\b(?:\d[ -]?){11,13}\b", text)
                 lots = re.findall(r"\b(?:lot(?: code)?\s*[:#-]?\s*)([A-Z0-9-]{4,})", text, re.I)
                 ambiguities = ["Deterministic mock extraction is not a live Gemini result"]
-                if not upcs: ambiguities.append("UPC missing")
-                if not lots: ambiguities.append("Lot code missing")
+                if not upcs:
+                    ambiguities.append("UPC missing")
+                if not lots:
+                    ambiguities.append("Lot code missing")
                 return RecallExtraction(
                     recall_number=(recall_match.group(1).upper() if recall_match else "MOCK-UNSTRUCTURED-001"),
                     event_id="MOCK-TEXT",
@@ -136,9 +139,12 @@ class GeminiService:
         evidence_values = list(payload.get("evidence") or [])
         passages = [EvidenceSnippet(field="product_description", quote=description[:240], source_location="structured source record")]
         ambiguities = list(payload.get("ambiguities") or [])
-        if not payload.get("recall_number"): ambiguities.append("Recall number missing")
-        if not payload.get("upc_candidates"): ambiguities.append("UPC candidates missing")
-        if not payload.get("lot_codes"): ambiguities.append("Lot codes missing")
+        if not payload.get("recall_number"):
+            ambiguities.append("Recall number missing")
+        if not payload.get("upc_candidates"):
+            ambiguities.append("UPC candidates missing")
+        if not payload.get("lot_codes"):
+            ambiguities.append("Lot codes missing")
         return RecallExtraction(
             recall_number=recall_number,
             event_id=str(payload.get("event_id") or ""),

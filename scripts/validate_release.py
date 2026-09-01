@@ -6,7 +6,7 @@ import json
 import re
 import sys
 import zipfile
-from pathlib import PurePosixPath, Path
+from pathlib import Path, PurePosixPath
 
 ZIP_PATH = Path(sys.argv[1] if len(sys.argv) > 1 else "/data/food-bank-recall-closure-agent.zip")
 ROOT = "food-bank-recall-closure-agent/"

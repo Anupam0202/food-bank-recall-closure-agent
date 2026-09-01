@@ -3,7 +3,17 @@ from __future__ import annotations
 from typing import Any
 
 from app.domain.enums import ConfidenceCategory, IncidentState, InventoryStatus, MatchCategory, TaskStatus
-from app.domain.models import Agency, AuditEvent, Incident, InventoryItem, MatchDecision, PartnerTask, Recall, RecallSource
+from app.domain.models import (
+    Agency,
+    AuditEvent,
+    Incident,
+    InventoryItem,
+    MatchDecision,
+    PartnerTask,
+    Recall,
+    RecallSource,
+)
+
 from .base import Repository
 
 
@@ -41,12 +51,15 @@ class FirestoreRepository(Repository):
         if value is None or collection not in cls.MODELS:
             return value
         data = dict(value)
-        if collection == "inventory": data["status"] = InventoryStatus(data.get("status", "AVAILABLE"))
-        if collection == "incidents": data["state"] = IncidentState(data.get("state", "RECEIVED"))
+        if collection == "inventory":
+            data["status"] = InventoryStatus(data.get("status", "AVAILABLE"))
+        if collection == "incidents":
+            data["state"] = IncidentState(data.get("state", "RECEIVED"))
         if collection == "matches":
             data["category"] = MatchCategory(data["category"])
             data["confidence_category"] = ConfidenceCategory(data["confidence_category"])
-        if collection == "tasks": data["status"] = TaskStatus(data.get("status", "OPEN"))
+        if collection == "tasks":
+            data["status"] = TaskStatus(data.get("status", "OPEN"))
         return cls.MODELS[collection](**data)
 
     def put(self, collection: str, key: str, value: Any) -> None:
