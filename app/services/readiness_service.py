@@ -33,7 +33,7 @@ def readiness_payload(settings: Any) -> dict[str, Any]:
     ]
     cloud_checks = [
         _check("project", "Google Cloud project", bool(settings.google_cloud_project), "Configured" if settings.google_cloud_project else "Not configured", "Set GOOGLE_CLOUD_PROJECT."),
-        _check("gemini", "Live Gemini credentials", settings.ai_mode == "live" and bool(settings.gemini_api_key), "Configured" if settings.ai_mode == "live" and settings.gemini_api_key else "Mock/replay or key missing", "Set AI_MODE=live and provide GEMINI_API_KEY through Secret Manager."),
+        _check("gemini", "Live Gemini credentials", settings.ai_mode == "live" and bool(settings.gemini_api_key), "Configured" if settings.ai_mode == "live" and settings.gemini_api_key else "Mock/replay or key missing", "Set AI_MODE=live and provide the Gemini API key through Secret Manager."),
         _check("firestore", "Durable Firestore", settings.use_firestore and bool(settings.google_cloud_project), "Enabled" if settings.use_firestore else "Disabled", "Set USE_FIRESTORE=true."),
         _check("storage", "Private Cloud Storage", settings.use_cloud_storage and bool(settings.gcs_bucket), "Enabled" if settings.use_cloud_storage else "Disabled", "Set USE_CLOUD_STORAGE=true and GCS_BUCKET."),
         _check("pubsub", "Authenticated Pub/Sub push", bool(settings.pubsub_verification_audience) and str(settings.pubsub_verification_audience).startswith("https://"), "Configured" if settings.pubsub_verification_audience else "Not configured", "Set the Cloud Run URL as PUBSUB_VERIFICATION_AUDIENCE."),

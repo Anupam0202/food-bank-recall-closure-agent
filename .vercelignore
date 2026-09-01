@@ -13,5 +13,6 @@ htmlcov
 *.zip
 *.pyc
 *.pyo
+*.egg-info
 credentials.json
 service-account*.json

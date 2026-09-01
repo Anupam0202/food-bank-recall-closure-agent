@@ -1,8 +1,8 @@
 # Build Report
 
-Generated: `2026-09-01T05:17:04+05:30`  
+Generated: `2026-09-01T06:31:18+05:30`  
 Version: `1.3.0`  
-Deadline status: `before_deadline` (775 seconds relative to the recorded hackathon deadline)
+Deadline status: `after_deadline` (-3678 seconds relative to the recorded hackathon deadline)
 
 ## Commands and evidence actually used
 
@@ -31,8 +31,8 @@ Deadline status: `before_deadline` (775 seconds relative to the recorded hackath
 | Live Gemini request | NOT RUN — no user credential or explicit paid/live execution was used |
 | Docker build | NOT RUN — Docker executable unavailable |
 | `bash infra/deploy_cloud_run.sh` | NOT RUN — no gcloud CLI, billing project, or credentials were available |
-| `python3 scripts/validate_release.py /data/food-bank-recall-closure-agent.zip` | PASS |
-| Clean extracted-copy compile, unit, golden-path, repository, and ZIP validation | PASS |
+| `python3 scripts/validate_release.py /data/food-bank-recall-closure-agent.zip` | PENDING |
+| Clean extracted-copy compile, unit, golden-path, repository, and ZIP validation | PENDING |
 
 ## Final visual evidence
 

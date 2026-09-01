@@ -7,6 +7,33 @@ name = "food-bank-recall-closure-agent"
 version = "1.3.0"
 description = "Closed-loop internal food-recall response coordinator"
 requires-python = ">=3.12,<3.14"
+dependencies = [
+    "fastapi==0.139.2",
+    "starlette==1.3.1",
+    "uvicorn[standard]==0.51.0",
+    "jinja2==3.1.6",
+    "python-multipart==0.0.32",
+    "itsdangerous==2.2.0",
+    "pydantic==2.13.4",
+    "pillow==12.3.0",
+    "pypdf==6.14.2",
+    "httpx==0.28.1",
+    "tenacity==9.1.4",
+    "google-adk==2.7.1",
+    "google-genai==2.20.0",
+    "google-cloud-firestore==2.28.0",
+    "google-cloud-storage==3.13.0",
+    "google-cloud-pubsub==2.39.0",
+    "google-auth[pyopenssl]==2.56.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]
+exclude = ["infra*", "fixtures*", "runtime*", "tests*", "docs*", "scripts*"]
+
+[tool.setuptools]
+py-modules = ["agent"]
 
 [tool.ruff]
 target-version = "py312"

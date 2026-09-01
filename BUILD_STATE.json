@@ -4,10 +4,10 @@
   "version": "1.3.0",
   "title": "Food-Bank Recall Closure Operations",
   "track": "Taskmaster",
-  "generated_at": "2026-09-01T05:17:04+05:30",
+  "generated_at": "2026-09-01T06:31:18+05:30",
   "deadline": "2026-09-01T05:30:00+05:30",
-  "seconds_remaining_at_finalization": 775,
-  "deadline_status": "before_deadline",
+  "seconds_remaining_at_finalization": -3678,
+  "deadline_status": "after_deadline",
   "operating_mode": "PEAK_RELEASE_HARDENING",
   "phases": {
     "exact_user_tested_baseline_ingested": "passed",
@@ -30,8 +30,8 @@
     "live_gemini": "not_run_no_credentials",
     "docker_build": "not_run_docker_unavailable",
     "google_cloud_deployment": "not_run_no_gcloud_or_credentials",
-    "release_packaging": "passed",
-    "extracted_release_validation": "passed"
+    "release_packaging": "pending",
+    "extracted_release_validation": "pending"
   },
   "selected_upgrades": [
     "Authenticated privacy-minimized evidence ZIP with SHA-256 member manifest",
