@@ -27,13 +27,9 @@ dependencies = [
     "google-auth[pyopenssl]==2.56.0",
 ]
 
-[tool.setuptools.packages.find]
-where = ["."]
-include = ["app*"]
-exclude = ["infra*", "fixtures*", "runtime*", "tests*", "docs*", "scripts*"]
-
 [tool.setuptools]
-py-modules = ["agent"]
+packages = []
+py-modules = []
 
 [tool.ruff]
 target-version = "py312"
