@@ -1,0 +1,1 @@
+{"provider":"OPERATOR_EVENT","source_url":"fixture://synthetic_recall.json","limitations":"Synthetic demonstration source.","record":{"recall_number":"SYNTHETIC-FB-2026-001","product_description":"Harvest Table Oat Bites, 12 oz","upc_candidates":["012345678905"],"lot_codes":["HT2409A"],"reason_for_recall":"Synthetic undeclared allergen scenario"}}

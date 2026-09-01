@@ -1,0 +1,3 @@
+{% extends "base.html" %}{% block title %}Administrator access · Recall Closure{% endblock %}{% block content %}
+<section class="auth-card"><span class="eyebrow">Protected controls</span><h1>Administrator access</h1><p>Public visitors can review the demo. Only an administrator can trigger or change operational state.</p>{% if error %}<div class="error-box">{{ error }}</div>{% endif %}<form method="post" action="/login" class="form-stack"><label for="token">Demo administrator token</label><input id="token" name="token" type="password" autocomplete="current-password" required><button class="button primary" type="submit">Continue</button></form><p class="quiet">Development default: <code>demo-admin</code>. Replace it before deployment.</p></section>
+{% endblock %}

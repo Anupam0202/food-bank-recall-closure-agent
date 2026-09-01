@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.env
+runtime/
+release-validation/
+*.zip
+.DS_Store
+gcp-readiness.json
+.env.cloud.generated
+.vercel/

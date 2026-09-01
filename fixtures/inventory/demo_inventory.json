@@ -1,0 +1,5 @@
+[
+  {"id":"item_exact","agency_id":"agency_north","name":"Harvest Table Oat Bites 12 oz","brand":"Harvest Table","upc":"0-12345-67890-5","lot_code":"HT-2409-A","quantity":18},
+  {"id":"item_review","agency_id":"agency_river","name":"Harvest snack bites assorted","brand":"Harvest Table","upc":"012345678905","lot_code":null,"quantity":6},
+  {"id":"item_control","agency_id":"agency_river","name":"Meadow Rice Crackers 8 oz","brand":"Meadow Pantry","upc":"099999111112","lot_code":"MP-0512","quantity":24}
+]

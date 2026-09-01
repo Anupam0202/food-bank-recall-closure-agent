@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Operations dashboard · Recall Closure{% endblock %}
+{% block content %}
+<section class="hero">
+  <div><span class="eyebrow">Taskmaster · autonomous response</span><h1>Turn a recall notice into verified internal action.</h1><p>Extract identifiers, find affected pantry stock, place reversible holds, coordinate partner tasks, and prove the response was completed.</p></div>
+  <div class="hero-actions">
+    {% if is_admin %}<button id="run-demo" class="button primary">Run seeded demonstration</button><button id="reset-demo" class="button secondary">Reset</button>{% else %}<a class="button primary" href="/login">Unlock demo controls</a>{% endif %}
+    <span class="quiet">No public alerts. No automatic disposal.</span>
+  </div>
+</section>
+<a class="readiness-strip" href="/readiness"><span class="readiness-pulse" aria-hidden="true"></span><div><strong>{{ readiness.status|replace('_', ' ')|title }}</strong><small>Local demo verified · Cloud configuration {{ readiness.cloud_deployment.score }}% complete · cost profile {{ readiness.cost_guardrails.profile }}</small></div><span>Open readiness →</span></a>
+<section class="metrics" aria-label="Operational summary">
+  <article class="metric"><span>Active incidents</span><strong>{{ counts.active }}</strong><small>requiring attention</small></article>
+  <article class="metric risk"><span>Quarantine holds</span><strong>{{ counts.quarantined }}</strong><small>exact identifier matches</small></article>
+  <article class="metric attention"><span>Human review</span><strong>{{ counts.review }}</strong><small>ambiguous evidence</small></article>
+  <article class="metric"><span>Open partner tasks</span><strong>{{ counts.open_tasks }}</strong><small>awaiting acknowledgement</small></article>
+  <article class="metric success"><span>Internally closed</span><strong>{{ counts.closed }}</strong><small>verified internal workflows</small></article>
+</section>
+<div class="grid two">
+  <section class="panel"><div class="panel-head"><div><span class="eyebrow">Incidents</span><h2>Response queue</h2></div><span class="count">{{ incidents|length }}</span></div>{% if incidents %}<div class="stack">{% for item in incidents %}<a class="incident-row" href="/incidents/{{ item.id }}"><span class="status-dot status-{{ item.state|lower }}"></span><span><strong>{{ item.id }}</strong><small>{{ item.exact_match_count }} exact · {{ item.review_count }} review · {{ item.affected_agency_count }} agencies</small></span><span class="status-label">{{ item.state }}</span></a>{% endfor %}</div>{% else %}<div class="empty"><span class="empty-icon">◎</span><h3>No active recall response</h3><p>Run the seeded demonstration to create one safely.</p></div>{% endif %}</section>
+  <section class="panel"><div class="panel-head"><div><span class="eyebrow">How it works</span><h2>Closed-loop workflow</h2></div></div><ol class="workflow-list"><li><span>1</span><div><strong>Observe</strong><small>Validate source and preserve provenance.</small></div></li><li><span>2</span><div><strong>Interpret</strong><small>Gemini extracts structured recall identifiers.</small></div></li><li><span>3</span><div><strong>Act safely</strong><small>Exact matches get reversible holds; uncertainty gets review.</small></div></li><li><span>4</span><div><strong>Verify</strong><small>Partner acknowledgements, review resolution, and a hashed evidence pack prove internal completion.</small></div></li></ol></section>
+</div>
+{% if is_admin %}<section class="panel upload-panel"><div><span class="eyebrow">Operator ingestion</span><h2>Upload a recall notice</h2><p class="quiet">PDF, JSON, or plain text. Uploaded text is untrusted evidence and still passes deterministic safety controls.</p></div><form id="notice-upload" class="upload-form"><div class="field-group"><label for="notice-file">Recall document</label><input id="notice-file" name="file" type="file" accept="application/pdf,application/json,text/plain" required></div><div class="field-group"><label for="source-url">Official source URL</label><input id="source-url" name="source_url" type="url" placeholder="https://…"></div><button class="button primary" type="submit">Ingest notice</button></form></section>{% endif %}
+<section class="panel system-panel"><div><span class="eyebrow">System status</span><h2>Execution is explicit</h2></div><dl class="system-grid"><div><dt>AI</dt><dd>{{ system_status.ai_mode }}</dd></div><div><dt>Model</dt><dd>{{ system_status.model }}</dd></div><div><dt>Repository</dt><dd>{{ system_status.repository }}</dd></div><div><dt>Media</dt><dd>{{ system_status.media }}</dd></div><div><dt>Pub/Sub</dt><dd>{{ 'ENABLED' if system_status.pubsub else 'DISABLED' }}</dd></div><div><dt>Revision</dt><dd>{{ system_status.revision }}</dd></div></dl></section>
+<section class="panel"><div class="panel-head"><div><span class="eyebrow">Recent evidence</span><h2>Audit events</h2></div></div><div class="stack">{% for event in recent_audit %}<div class="audit-row"><span>{{ event.event_type }}</span><small>{{ event.message }}</small></div>{% else %}<p class="quiet">Run the seeded demonstration to generate a traceable timeline.</p>{% endfor %}</div></section>
+<section class="notice"><div class="notice-mark">i</div><div><strong>Important source limitation</strong><p>Imported enforcement data is supporting evidence, not an authoritative public-alert feed. “Internal closed” means this organization completed its own response—not that a regulator closed the recall.</p></div></section>
+{% endblock %}

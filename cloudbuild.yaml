@@ -1,0 +1,19 @@
+steps:
+  - name: python:3.12-slim
+    entrypoint: bash
+    args:
+      - -c
+      - pip install -r requirements-dev.txt && python scripts/adk_import_smoke.py && ruff check . && pytest -q --cov=app --cov-report=term-missing && python scripts/check_repo.py
+    env: ["AI_MODE=mock"]
+  - name: gcr.io/cloud-builders/docker
+    args: ["build", "-t", "${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_SERVICE}:$SHORT_SHA", "."]
+  - name: gcr.io/cloud-builders/docker
+    args: ["push", "${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_SERVICE}:$SHORT_SHA"]
+substitutions:
+  _REGION: us-central1
+  _REPOSITORY: recall-closure
+  _SERVICE: recall-closure-agent
+images:
+  - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_SERVICE}:$SHORT_SHA
+options:
+  logging: CLOUD_LOGGING_ONLY

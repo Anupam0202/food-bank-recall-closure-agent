@@ -1,0 +1,59 @@
+from enum import StrEnum
+
+
+class IncidentState(StrEnum):
+    RECEIVED = "RECEIVED"
+    SOURCE_VALIDATED = "SOURCE_VALIDATED"
+    EXTRACTED = "EXTRACTED"
+    MATCHED = "MATCHED"
+    ACTIONED = "ACTIONED"
+    AWAITING_ACK = "AWAITING_ACK"
+    VERIFIED = "VERIFIED"
+    INTERNAL_CLOSED = "INTERNAL_CLOSED"
+    ESCALATED = "ESCALATED"
+    FAILED_RETRYABLE = "FAILED_RETRYABLE"
+    FAILED_TERMINAL = "FAILED_TERMINAL"
+
+
+class InventoryStatus(StrEnum):
+    AVAILABLE = "AVAILABLE"
+    QUARANTINED = "QUARANTINED"
+    HUMAN_REVIEW = "HUMAN_REVIEW"
+    RELEASED = "RELEASED"
+
+
+class MatchCategory(StrEnum):
+    EXACT_MATCH = "EXACT_MATCH"
+    IDENTIFIER_REVIEW = "IDENTIFIER_REVIEW"
+    SEMANTIC_OR_VISUAL_REVIEW = "SEMANTIC_OR_VISUAL_REVIEW"
+    NO_MATCH = "NO_MATCH"
+    INSUFFICIENT_DATA = "INSUFFICIENT_DATA"
+
+
+class ConfidenceCategory(StrEnum):
+    SOURCE_EXACT = "SOURCE_EXACT"
+    SOURCE_INFERRED = "SOURCE_INFERRED"
+    AMBIGUOUS = "AMBIGUOUS"
+    MISSING = "MISSING"
+
+
+class TaskStatus(StrEnum):
+    OPEN = "OPEN"
+    ACKNOWLEDGED = "ACKNOWLEDGED"
+    RESOLVED = "RESOLVED"
+    FAILED = "FAILED"
+
+
+ALLOWED_TRANSITIONS: dict[IncidentState, set[IncidentState]] = {
+    IncidentState.RECEIVED: {IncidentState.SOURCE_VALIDATED, IncidentState.FAILED_RETRYABLE, IncidentState.FAILED_TERMINAL},
+    IncidentState.SOURCE_VALIDATED: {IncidentState.EXTRACTED, IncidentState.FAILED_RETRYABLE, IncidentState.FAILED_TERMINAL},
+    IncidentState.EXTRACTED: {IncidentState.MATCHED, IncidentState.FAILED_RETRYABLE, IncidentState.FAILED_TERMINAL, IncidentState.ESCALATED},
+    IncidentState.MATCHED: {IncidentState.ACTIONED, IncidentState.FAILED_RETRYABLE, IncidentState.FAILED_TERMINAL, IncidentState.ESCALATED},
+    IncidentState.ACTIONED: {IncidentState.AWAITING_ACK, IncidentState.FAILED_RETRYABLE, IncidentState.FAILED_TERMINAL, IncidentState.ESCALATED},
+    IncidentState.AWAITING_ACK: {IncidentState.VERIFIED, IncidentState.FAILED_RETRYABLE, IncidentState.FAILED_TERMINAL, IncidentState.ESCALATED},
+    IncidentState.VERIFIED: {IncidentState.INTERNAL_CLOSED, IncidentState.FAILED_TERMINAL},
+    IncidentState.FAILED_RETRYABLE: {IncidentState.SOURCE_VALIDATED, IncidentState.EXTRACTED, IncidentState.ESCALATED, IncidentState.FAILED_TERMINAL},
+    IncidentState.ESCALATED: {IncidentState.AWAITING_ACK, IncidentState.VERIFIED, IncidentState.FAILED_TERMINAL},
+    IncidentState.INTERNAL_CLOSED: set(),
+    IncidentState.FAILED_TERMINAL: set(),
+}

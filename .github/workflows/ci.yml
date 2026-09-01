@@ -1,0 +1,36 @@
+name: CI
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    env:
+      AI_MODE: mock
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements-dev.txt
+      - run: python scripts/check_dependency_compatibility.py
+      - run: python -m pip check
+      - run: python scripts/adk_import_smoke.py
+      - run: ruff check .
+      - run: pytest -q --cov=app --cov-report=term-missing
+      - run: python scripts/http_smoke.py
+      - run: python scripts/check_repo.py
+      - run: python -m compileall -q app scripts tests
+  container:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: false
+          tags: recall-closure-agent:ci

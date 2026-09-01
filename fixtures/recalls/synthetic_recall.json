@@ -1,0 +1,27 @@
+{
+  "data_classification": "SYNTHETIC_DEMONSTRATION_DATA",
+  "recall_number": "SYNTHETIC-FB-2026-001",
+  "event_id": "DEMO-EVENT-2409",
+  "classification": "Class II (synthetic)",
+  "product_description": "Harvest Table Oat Bites, 12 oz paper carton",
+  "brands": [
+    "Harvest Table"
+  ],
+  "upc_candidates": [
+    "012345678905"
+  ],
+  "lot_codes": [
+    "HT2409A"
+  ],
+  "date_codes": [
+    "2026-11-20"
+  ],
+  "reason_for_recall": "Synthetic scenario: undeclared almond allergen",
+  "distribution_pattern": "Two fictional partner pantries",
+  "recalling_firm": "Synthetic Foods Cooperative",
+  "evidence": [
+    "UPC 012345678905",
+    "Lot HT2409A"
+  ],
+  "limitations": "Not an official recall. Created solely for reproducible demonstration."
+}
